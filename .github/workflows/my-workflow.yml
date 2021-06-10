@@ -16,5 +16,10 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: "🎉 You've created this issue comment using GitHub Script!!!"
+              body: "🎉 You've created this issue comment using GitHub Script!!! Now we will add this to the Project Board!"
             })
+            github.projects.createCard({
+            column_id: 14680466,
+            content_id: context.payload.issue.id,
+            content_type: "Issue"
+            });
